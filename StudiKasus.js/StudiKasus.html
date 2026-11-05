@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studi Kasus - Kalkulator Sederhana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Background Gambar dengan Gradasi Overlay Soft */
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-card {
+            /* Efek Transparan (Glassmorphism) */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+            background-color: #ffffff;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box {
+            background-color: rgba(236, 240, 241, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 1px solid #dcdde1;
+        }
+
+        .result-box h3 {
+            margin: 0;
+            color: #34495e;
+            font-size: 1.1rem;
+            word-break: break-word;
+        }
+
+        #hasil {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-card">
+        <h2>Kalkulator Sederhana</h2>
+        
+        <div class="input-group">
+            <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+            <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+        </div>
+
+        <div class="button-group">
+            <button onclick="hitung('+')">+</button>
+            <button onclick="hitung('-')">-</button>
+            <button onclick="hitung('*')">×</button>
+            <button onclick="hitung('/')">÷</button>
+        </div>
+
+        <div class="result-box">
+            <h3>Hasil: <span id="hasil">0</span></h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
